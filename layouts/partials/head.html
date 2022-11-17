@@ -22,6 +22,9 @@
   <meta name="author" content="{{ site.Author.name }}" />
   {{ end }}
 
+  <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.ogimage }}"> 
+  <meta name="twitter:image:src" content="{{ .Site.BaseURL }}{{ .Params.ogimage }}">
+
   <!-- Styles & Scripts -->
   {{ $main_css := resources.Get "main.css" }}
   <!---->
