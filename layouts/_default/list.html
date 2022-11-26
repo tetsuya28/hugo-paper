@@ -46,7 +46,14 @@
 {{ end }}
 
 <section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <time class="text-sm opacity-50">{{ delimit .Params.author ", " }}</time>
+  {{ range $author := .Params.author }}
+    {{ range $authorInfo := where $.Site.Params.authors "name" $author }}
+      <div display="flex" flex-direction="column">
+        <img src="https://unavatar.io/twitter/{{ $authorInfo.twitter_name }}" width="30px" style="display: inline-block; margin: 0.2rem; border-radius: 50%;" />
+        <div style="display: inline-block">@{{ $authorInfo.name }}</div>
+      </div>
+    {{ end }}
+  {{ end }}
   <h2 class="!my-0 pb-1 !leading-none">{{ .Title }}</h2>
   <time class="text-sm opacity-60">{{ .Date | time.Format ":date_medium" }}</time>
   <a class="absolute inset-0" href="{{ .Permalink }}"></a>
