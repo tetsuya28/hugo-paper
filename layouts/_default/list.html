@@ -38,10 +38,18 @@
       {{ site.Params.bio | default (print "Personal blog by " site.Params.name)
       }}
     </div>
+    <h3>Editors</h3>
+    {{ range $author := $.Site.Params.authors }}
+      <div display="flex" flex-direction="column">
+        <img src="https://unavatar.io/twitter/{{ $author.twitter_name }}" width="30px" style="display: inline-block; margin: 0.2rem; border-radius: 50%;" />
+        <div style="display: inline-block">@{{ $author.name }}</div>
+      </div>
+    {{ end }}
   </div>
   {{ end }}
 </div>
 {{ end }}<!---->
+
 
 {{ end }}
 
