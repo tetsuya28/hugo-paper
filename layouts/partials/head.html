@@ -6,6 +6,10 @@
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
 
+  {{ if not .Site.IsServer }}
+    {{ partial "google/analytics" . }}
+  {{ end }}
+
   <!-- Title -->
   <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
 
